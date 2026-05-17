@@ -5,14 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RPS</title>
   <script src="index.js" defer></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Use console to see the results</h1>
-  <h2>Press <code>Ctrl + Shift + I</code> to access the console</h2>
-  <button id="rock">🪨</button>
-  <button id="paper">📄</button>
-  <button id="scissors">✂️</button>
-  <div id="status">No status</div>
-  <div id="result">Play to get result</div>
+  <div id="play-container">
+    <h1>Rock, Paper & Scissors</h1>
+    <h2>First to five points wins the game!</h2>
+    <div id="buttons">
+      <button id="rock">🪨</button>
+      <button id="paper">📄</button>
+      <button id="scissors">✂️</button>
+    </div>
+    <div id="status"></div>
+    <div id="result">Press your choice to play!</div>
+  </div>
 </body>
 </html>

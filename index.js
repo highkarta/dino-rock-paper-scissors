@@ -67,7 +67,16 @@ function playGame() {
         statusInfo = 'Draw';
       }
     }
-    let resultInfo = 'The score is, Human: ' + humanScore + ' Computer: ' + computerScore;
+    let resultInfo = 'The score is, You: ' + humanScore + ' Computer: ' + computerScore;
+    if(humanScore == 5 || computerScore == 5){
+      if(humanScore>computerScore){
+        resultInfo = 'You won the game! Press Ctrl + R to play again!';
+      }else{
+        resultInfo = 'Computer won the game! Press Ctrl + R to play again!';
+      }
+      // computerScore = 0;
+      // humanScore = 0;
+    }
     status.innerText = statusInfo;
     result.innerText = resultInfo;
   }
@@ -75,3 +84,5 @@ function playGame() {
   let computerSelection = getComputerChoice();
   playRound(humanSelection, computerSelection);
 }
+
+// additionally, add reset button instead of Ctrl + R
