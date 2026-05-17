@@ -13,44 +13,49 @@ function getHumanChoice(){
   return prompt("Enter your choice: Rock, Paper or Scissors?");
 }
 
-function playRound(humanChoice, computerChoice){
-  let lowerHumanChoice = humanChoice.toLowerCase();
-  console.log(humanScore, computerScore);
-  if(lowerHumanChoice == 'rock'){
-    if(computerChoice == 'paper'){
-      computerScore++;
-    }else if(computerChoice == 'scissors'){
-      humanScore++;
+function playGame(){
+  function playRound(humanChoice, computerChoice){
+    let lowerHumanChoice = humanChoice.toLowerCase();
+    if(lowerHumanChoice == 'rock'){
+      if(computerChoice == 'paper'){
+        computerScore++;
+        console.log("You lose! Paper beats Rock");
+      }else if(computerChoice == 'scissors'){
+        humanScore++;
+        console.log("You won! Rock beats Scissors");
+      }else{
+        console.log("Draw");
+      }
+    }else if(lowerHumanChoice == 'paper'){
+      if(computerChoice == 'scissors'){
+        computerScore++;
+        console.log("You lose! Scissors beats Paper");
+      }else if(computerChoice == 'rock'){
+        humanScore++;
+        console.log("You won! Paper beats Rock");
+      }else{
+        console.log("Draw");
+      }
+    }else{ // scissors case
+      if(computerChoice == 'rock'){
+        computerScore++;
+        console.log("You lose! Rock beats Scissors");
+      }else if(computerChoice == 'paper'){
+        humanScore++;
+        console.log("You won! Scissors beats Paper");
+      }else{
+        console.log("Draw");
+      }
     }
-  }else if(lowerHumanChoice == 'paper'){
-    if(computerChoice == 'scissors'){
-      computerScore++;
-    }else if(computerChoice == 'rock'){
-      humanScore++;
-    }
-  }else{ // scissors case
-    if(computerChoice == 'rock'){
-      computerScore++;
-    }else if(computerChoice == 'paper'){
-      humanScore++;
-    }
+    let message = "The score is, Human: " + humanScore + " Computer: " + computerScore;
+    console.log(message);
   }
   
-  let message = "The score is, Human: " + humanScore + " Computer: " + computerScore;
-  console.log(message);
-}
-
-
-function playGame(){
-  let humanSelection = getHumanChoice();
-  let computerSelection = getComputerChoice();
-  playRound(humanSelection, computerSelection);
+  for (let i = 0; i < 5; i++) {
+    let humanSelection = getHumanChoice();
+    let computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+  }
 }
 
 playGame();
-playGame();
-playGame();
-playGame();
-playGame();
-
-// have to fix, game should run one time, while rounds 5 times
